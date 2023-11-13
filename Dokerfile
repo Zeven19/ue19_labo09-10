@@ -1,1 +1,17 @@
+# Image de base 
+FROM python:3.8
 
+# Définir le repertoire de travail dans le conteneur
+WORKDIR /app
+
+# Copier les fichier de requirements
+COPY requirements.txt
+
+# Installer les dépendances 
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Exposer les ports utiliser (8000 -> HTTP)
+EXPOSE 8000
+
+# Lancer l'application 
+CMD ["python", "app.py"]
